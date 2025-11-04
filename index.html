@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Forever Yours — Proposal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hearts" aria-hidden="true"></div>
+  <main class="container">
+    <header class="hero">
+      <h1 class="brand">Forever Yours</h1>
+      <p class="tagline">A little site to ask a big question</p>
+    </header>
+
+    <section id="step-setup" class="card active" aria-labelledby="setup-title">
+      <h2 id="setup-title">Start the magic</h2>
+      <p class="hint">Enter your details to personalize the proposal.</p>
+      <form id="setup-form" novalidate>
+        <div class="grid">
+          <label class="field">
+            <span>Your name</span>
+            <input type="text" id="proposerName" placeholder="e.g., Shubham" required />
+          </label>
+        </div>
+        <button type="submit" class="btn primary">Continue</button>
+      </form>
+    </section>
+
+    
+
+    <section id="step-questions" class="card" aria-labelledby="question-title">
+      <h2 id="question-title">The question</h2>
+      <p id="question-text" class="question"></p>
+      <div class="row">
+        <button id="btn-yes" class="btn success">Yes</button>
+        <button id="btn-no" class="btn danger">No</button>
+      </div>
+      <p id="attempts-left" class="hint"></p>
+    </section>
+
+    <section id="step-finish" class="card" aria-labelledby="finish-title">
+      <h2 id="finish-title"></h2>
+      <p id="finish-message" class="finish"></p>
+      <button id="send-results" class="btn primary">Save This Moment</button>
+      <p id="send-status" class="hint" role="status"></p>
+      <button id="restart" class="btn ghost">Start Over</button>
+    </section>
+
+    <footer class="footer">
+      <small></small>
+    </footer>
+  </main>
+
+  <script src="app.js"></script>
+  <script>
+    // create decorative hearts
+    (function renderHearts() {
+      const container = document.querySelector('.hearts');
+      const count = 24;
+      for (let i = 0; i < count; i++) {
+        const h = document.createElement('span');
+        h.className = 'heart';
+        h.style.left = Math.random() * 100 + 'vw';
+        h.style.animationDelay = (Math.random() * 6).toFixed(2) + 's';
+        h.style.animationDuration = (6 + Math.random() * 6).toFixed(2) + 's';
+        h.style.opacity = (0.3 + Math.random() * 0.7).toFixed(2);
+        container.appendChild(h);
+      }
+    })();
+  </script>
+</body>
+<noscript>Please enable JavaScript to experience the proposal.</noscript>
+</html>
+
+
